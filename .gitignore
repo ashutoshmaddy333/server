@@ -1,0 +1,38 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+.cache/
+
+# Debugging/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# MongoDB database dumps
+dump/
+*.mongodb
+*.mongo
+
+# Coverage reports
+coverage/
+
+# PM2 process manager logs (if using PM2)
+pm2/logs/
