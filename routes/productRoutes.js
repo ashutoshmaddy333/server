@@ -13,5 +13,7 @@ router.post('/product/:id/review', productController.addReview);
 router.patch('/review/:productId/:reviewId/helpful', productController.markReviewHelpful);
 router.get('/products/tag/:tag', productController.getProductsByTag);
 router.get('/products/featured', productController.getFeaturedProducts);
+router.get('/gender/:gender', shopController.getProductsByGender);
+router.get('/collection/:collection', shopController.getProductsByCollection);
 
 module.exports = router;

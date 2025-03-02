@@ -17,7 +17,19 @@ const productSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Ring', 'Necklace', 'Earrings', 'Bracelet', 'Other'],
+    enum: ['Ring', 'Necklace', 'Earrings', 'Bracelet', 'Bangle', 'Pendant', 'Anklet', 'Nose Ring', 'Chain', 'Other'],
+    index: true
+  },
+  gender: {
+    type: String,
+    required: true,
+    enum: ['Men', 'Women', 'Kids', 'Unisex'],
+    index: true
+  },
+  collection: {
+    type: String,
+    enum: ['Into Eternity', 'Unbound', 'Engagement Rings'],
+    required: false,
     index: true
   },
   status: {
@@ -36,10 +48,8 @@ const productSchema = new mongoose.Schema({
   },
 
   images: [{
-    filename: { type: String, },
-    url: {
-      type: String,
-    },
+    filename: { type: String },
+    url: { type: String },
     public_id: { type: String, required: true }
   }],
 
@@ -58,13 +68,13 @@ const productSchema = new mongoose.Schema({
   lastRestocked: { type: Date },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User", 
+    ref: "User",
     required: true,
   },
   reviews: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Review", 
+      ref: "Review",
       required: false,
     },
   ],

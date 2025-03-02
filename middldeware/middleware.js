@@ -7,7 +7,7 @@ const cors = require('cors');
 const setupMiddleware = (app) => {
 
   app.use(cors({
-    origin: ["http://localhost:5173", "*"], 
+    origin: ["https://karuskas-jewellery.vercel.app/", "*"], 
     credentials: true,
   }));
   
