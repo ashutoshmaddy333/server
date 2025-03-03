@@ -14,13 +14,9 @@ mongoose.connect(process.env.MONGODB_URI)
 
 
 const productRoutes = require('./routes/productRoutes');
-const collectionRoutes = require('./routes/collectionRoutes');
-const genderRoutes = require('./routes/genderRoutes');
-
 
 app.use('/api/products', productRoutes);
-app.use('/api/collections', collectionRoutes);
-app.use('/api/gender', genderRoutes);
+;
 
 app.get('/', (req, res) => {
   res.send('🚀 Karushka Jewells API is running...');
