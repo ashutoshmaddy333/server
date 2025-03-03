@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const setupMiddleware = require('./middleware/middleware');
+const setupMiddleware = require('./middllewares/middleware');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
