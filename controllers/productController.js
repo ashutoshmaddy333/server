@@ -29,7 +29,7 @@ const productController = {
       res.status(500).json({ error: error.message });
     }
   },
-   
+
   // Get all products with filtering, sorting, and pagination
   getProducts: async (req, res) => {
     try {
@@ -103,6 +103,16 @@ const productController = {
     }
   },
 
+  //GetAllProducts
+  getAllProducts: async (req, res) => {
+    try {
+      const products = await Product.find({});
+      res.status(200).json({ products, count: products.length });
+    } catch (error) {
+      console.error("Error fetching all products:", error);
+      res.status(500).json({ error: error.message });
+    }
+  },
   // Get a product by ID
   getProductById: async (req, res) => {
     try {
@@ -302,7 +312,7 @@ const productController = {
       res.status(500).json({ error: error.message });
     }
   },
-   
+
   // Get featured products
   getFeaturedProducts: async (req, res) => {
     try {
@@ -321,7 +331,7 @@ const productController = {
       res.status(500).json({ error: error.message });
     }
   },
-  
+
   // Get products by collection
   getProductsByCollection: async (req, res) => {
     try {
@@ -329,13 +339,13 @@ const productController = {
       if (!collection) {
         return res.status(400).json({ error: "Collection parameter is required" });
       }
-      
+
       const products = await Product.find({ collection });
-      
+
       if (products.length === 0) {
         return res.status(404).json({ message: "No products found in this collection" });
       }
-      
+
       res.json({ collection, products });
     } catch (error) {
       console.error("Error fetching products by collection:", error);
@@ -350,13 +360,13 @@ const productController = {
       if (!gender) {
         return res.status(400).json({ error: "Gender parameter is required" });
       }
-      
+
       const products = await Product.find({ gender });
-      
+
       if (products.length === 0) {
         return res.status(404).json({ message: "No products found for this gender category" });
       }
-      
+
       res.json({ gender, products });
     } catch (error) {
       console.error("Error fetching products by gender:", error);
